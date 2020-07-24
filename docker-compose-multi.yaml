@@ -17,8 +17,6 @@ services:
       - HUB_PORT=4444
     ports:
       - "5911:5900"
-    shm_size: 128M
-
   chrome2:
     image: selenium/node-chrome-debug
     depends_on:
@@ -27,8 +25,43 @@ services:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
     ports:
-      - "5912:5900"
-    shm_size: 256M      
+      - "5912:5900"      
+  chrome3:
+    image: selenium/node-chrome-debug
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    ports:
+      - "5913:5900"
+  chrome4:
+    image: selenium/node-chrome-debug
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    ports:
+      - "5914:5900"
+  chrome5:
+    image: selenium/node-chrome-debug
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    ports:
+      - "5915:5900"      
+  chrome6:
+    image: selenium/node-chrome-debug
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    ports:
+      - "5916:5900"
       
   firefox1:
     image: selenium/node-firefox-debug
